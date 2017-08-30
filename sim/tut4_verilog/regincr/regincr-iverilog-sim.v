@@ -17,10 +17,14 @@ module top;
   logic [7:0] in;
   logic [7:0] out;
 
-  // ''' TUTORIAL TASK '''''''''''''''''''''''''''''''''''''''''''''''''''
-  // This simulator script is incomplete. As part of the tutorial you
-  // will need to instantiate and connect a RegIncr model here.
-  // '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  tut4_verilog_regincr_RegIncr reg_incr
+  (
+   .clk (clk),
+   .reset (reset),
+   .in (in),
+   .out (out)
+  );
+
 
   // Verify functionality
 
@@ -33,7 +37,7 @@ module top;
 
     // Reset
 
-    #11;
+    #11; //wait 11 time steps (not synthesizable)
     reset = 1'b0;
 
     // Test cases

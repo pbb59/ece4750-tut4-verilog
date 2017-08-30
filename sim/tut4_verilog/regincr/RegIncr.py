@@ -1,5 +1,7 @@
 #=========================================================================
 # RegIncr
+# PyMTL wrapper for out verilog module, RegIncr.v
+# Will need for doing PyMTL testing of our verilog module
 #=========================================================================
 
 from pymtl import *
@@ -7,7 +9,7 @@ from pymtl import *
 class RegIncr( VerilogModel ):
 
   # Verilog module setup
-
+  # Define namespace
   vprefix = "tut4_verilog_regincr"
 
   # Constructor

@@ -8,6 +8,7 @@
 `ifndef TUT4_VERILOG_REGINCR_REG_INCR_V
 `define TUT4_VERILOG_REGINCR_REG_INCR_V
 
+//note name of gaurd and module is related to path to avoid namespace collisions
 module tut4_verilog_regincr_RegIncr
 (
   input  logic       clk,
@@ -15,7 +16,7 @@ module tut4_verilog_regincr_RegIncr
   input  logic [7:0] in,
   output logic [7:0] out
 );
-
+	//always blocks use verilog not systemverilog syntax in this example
   // Sequential logic
 
   logic [7:0] reg_out;
@@ -26,10 +27,14 @@ module tut4_verilog_regincr_RegIncr
       reg_out <= in;
   end
 
-  // ''' TUTORIAL TASK '''''''''''''''''''''''''''''''''''''''''''''''''''
-  // This model is incomplete. As part of the tutorial you will insert
-  // combinational logic here to model the incrementer logic.
-  // '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  logic [7:0] temp_wire;
+  always @(*) begin
+    temp_wire = reg_out + 1;
+  end
+
+   //tie to output port (not convention is to put these outside always block)
+   assign out = temp_wire;
+
 
 endmodule
 
